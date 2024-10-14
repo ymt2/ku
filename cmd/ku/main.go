@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+	"github.com/ymt2/ku/internal/llm"
 	"github.com/ymt2/ku/internal/nkf"
 )
 
@@ -13,6 +14,7 @@ var rootCmd = &cobra.Command{
 }
 
 func init() {
+	rootCmd.AddCommand(llm.Cmd)
 	rootCmd.AddCommand(nkf.Cmd)
 }
 
@@ -22,6 +24,7 @@ func Execute() {
 		os.Exit(1)
 	}
 }
+
 func main() {
 	Execute()
 }
